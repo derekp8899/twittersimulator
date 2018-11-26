@@ -36,7 +36,10 @@ int main(int argc, char * argv){
   int totFollows = 10;
   int numMessages = 0;//number of messages sent
   while(totFollows < stopCond){//loop to continue new tweets until stop condition is reached
-
+/*
+we should generate the random number of new views and followers seperatly for each bot but for now just did it globally so that we can get
+an idea of the flow of the program to make sure we are on the same page
+*/
     int newViews  = rand() % totFollows;//random number of views max is total followers this should eventually be drawn from weibull dist
     int newFollows = newViews * .15;//new views for now is 15% rounded of new views
     for( i = 0; i < 10; i++){
