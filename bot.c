@@ -52,3 +52,4 @@ an idea of the flow of the program to make sure we are on the same page
   }
   printf("goal of %d followers reached after %d messages\n\n",stopCond,numMessages);
 }
+//test comment for using git
