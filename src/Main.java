@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
+import java.lang.Math;
 
 public class Main {
  
@@ -28,7 +30,33 @@ public class Main {
             System.out.println("   Account " + allAccounts.get(i).getID() + " Avg Tweet Quality: "+allAccounts.get(i).getAvgTweetQuality());
             System.out.println("   Account " + allAccounts.get(i).getID() + " Popularity Multiplier: "+allAccounts.get(i).getPopularityMult()+"\n");
         }
+	int value=0;
+	for(int i = 0; i <100;i++){
+
+	    value += exponRNG(5);
+	}
+	value = value / 100;
+	System.out.println(value);
+    }
+
+    public static double NormalRNG(int stdDev, int mean){
+
+	Random rand = new Random(System.currentTimeMillis());
+	double value = 0;
+
+	value = (rand.nextGaussian()*stdDev)+mean;
+	return value;
 
     }
 
+    public static double exponRNG(double mean){
+
+	double lambda = 1/mean;
+	
+	Random rand = new Random(System.currentTimeMillis());
+	double value = 0;
+	value = Math.log(1-rand.nextDouble())/(-lambda);
+
+	return value;
+    }
 }
