@@ -53,4 +53,22 @@ public class Main {
 
 	return value;
     }
+
+    public static int binomTest(int numTests, double prob){
+
+	int x = 0;//the number of successes
+	for (int i = 0; i < numTests; i++){
+	    if(Math.random() <p)
+		x++;
+	}
+	return x;
+
+    }
+    public static int genViews(int followers, double influence){
+
+	int views = 0;
+	double mean = follwers * (influence);
+	views = (int)exponRNG(mean);
+
+    }
 }
