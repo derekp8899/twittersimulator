@@ -4,7 +4,11 @@ import java.util.Random;
 import java.lang.Math;
 
 public class Main {
- 
+
+
+    double followProb = .001;
+    double retweetProb = .01;
+    
     private static List<Account> allAccounts = new ArrayList<Account>();
 
     public static void main(String[] args) {
@@ -69,6 +73,32 @@ public class Main {
 	int views = 0;
 	double mean = follwers * (influence);
 	views = (int)exponRNG(mean);
+	return views;
+	
+    }
 
+    public static int genRetweets(double rate, int views){
+
+	int retweets = 0;
+	retweets = binomTest(views, rate);
+	return retweeets;
+
+    }
+
+    public static int genFollows(double rate, int views){
+
+	int follows = 0;
+	follows = binomTest(views, rate);
+	return follows;
+
+    }
+
+    public static double updateInfluence(int newFollows,int currentInfluence){
+
+	for(int i = 0; i < newFollows; i++){
+	    double inc = 0;
+	    inc = exponRNG(.01);
+
+	}
     }
 }
