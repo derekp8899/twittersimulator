@@ -18,7 +18,7 @@ public class Main {
                                     NormalRNG(0.25,0.5), //tweetProbability
                                     0.01,       //popularityMultiplier
                                     0,                 //baseHumanFollowerCount
-                                    0                    //baseBotFollowerCount
+                                    i*10                    //baseBotFollowerCount
                             ));
         }
         //Print all initial account stats
@@ -39,8 +39,10 @@ public class Main {
 		currentAccount.generateTweet(currentAvgTweetQuality, currentAccount.getID());
 		Tweet currentTweet = currentAccount.getMostRecentTweet();
 		int totalTweetImpressions = genImpressions(currentHumanFollowers, currentProbabilityMult, NormalRNG(.1,.3));
+		totalTweetImpressions += currentAccount.getBotFollowerCount();
 		int retweets = genRetweets(totalTweetImpressions,retweetRate);
-		totalTweetImpressions += retweets*exponRNG(.01);
+		retweets += currentAccount.getBotFollowerCount();
+		totalTweetImpressions += retweets*exponRNG(1);
 		int newFollows = binomTest(totalTweetImpressions-currentHumanFollowers,followerRate);
 		currentAccount.setPopularityMult(currentAccount.getPopularityMult()+popUpdate(newFollows,.01));
 		currentAccount.incFollows(newFollows);
