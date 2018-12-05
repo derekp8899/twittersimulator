@@ -30,13 +30,7 @@ public class Main {
             System.out.println("   Account " + allAccounts.get(i).getID() + " Avg Tweet Quality: "+allAccounts.get(i).getAvgTweetQuality());
             System.out.println("   Account " + allAccounts.get(i).getID() + " Popularity Multiplier: "+allAccounts.get(i).getPopularityMult()+"\n");
         }
-	int value=0;
-	for(int i = 0; i <100;i++){
 
-	    value += exponRNG(5);
-	}
-	value = value / 100;
-	System.out.println(value);
     }
 
     public static double NormalRNG(int stdDev, int mean){
